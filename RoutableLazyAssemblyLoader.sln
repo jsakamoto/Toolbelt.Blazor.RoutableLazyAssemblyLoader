@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutableLazyAssemblyLoader", "RoutableLazyAssemblyLoader\RoutableLazyAssemblyLoader.csproj", "{78347044-BCBD-4ADE-933C-89F2485F34DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{E8A4D487-B7A7-4B60-B3AE-ED7047999668}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+		RELEASE-NOTES.txt = RELEASE-NOTES.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{0D9931E1-758F-4738-BDEE-C35BD635136D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWasmLazyLoading", "BlazorWasmLazyLoading", "{E0A3EAAA-A9A5-45F7-BBF0-25E35480B042}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CounterPage", "Samples\BlazorWasmLazyLoading\CounterPage\CounterPage.csproj", "{A23F6D31-C467-4263-952E-CF296FFCE26B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp", "Samples\BlazorWasmLazyLoading\BlazorWasmApp\BlazorWasmApp.csproj", "{001D0116-AC15-477C-B39A-461E74CCC9E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWasmLazyLoadingHosted", "BlazorWasmLazyLoadingHosted", "{7CE3302A-5003-4FC3-ADBB-0482F35AC191}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CounterPage", "Samples\BlazorWasmLazyLoadingHosted\CounterPage\CounterPage.csproj", "{96E2D922-A594-4446-92B1-EC51EB907041}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp.Shared", "Samples\BlazorWasmLazyLoadingHosted\Shared\BlazorWasmApp.Shared.csproj", "{6B24C857-40DA-431E-BBCC-1A301EE20B0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp.Client", "Samples\BlazorWasmLazyLoadingHosted\Client\BlazorWasmApp.Client.csproj", "{FB4207CA-B0C9-435E-ACA8-CDAEC37B2AE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp.Server", "Samples\BlazorWasmLazyLoadingHosted\Server\BlazorWasmApp.Server.csproj", "{0A46414E-BBAB-40B6-B200-C8320746ACAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78347044-BCBD-4ADE-933C-89F2485F34DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78347044-BCBD-4ADE-933C-89F2485F34DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78347044-BCBD-4ADE-933C-89F2485F34DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78347044-BCBD-4ADE-933C-89F2485F34DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23F6D31-C467-4263-952E-CF296FFCE26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23F6D31-C467-4263-952E-CF296FFCE26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23F6D31-C467-4263-952E-CF296FFCE26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23F6D31-C467-4263-952E-CF296FFCE26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001D0116-AC15-477C-B39A-461E74CCC9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001D0116-AC15-477C-B39A-461E74CCC9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001D0116-AC15-477C-B39A-461E74CCC9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001D0116-AC15-477C-B39A-461E74CCC9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E2D922-A594-4446-92B1-EC51EB907041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E2D922-A594-4446-92B1-EC51EB907041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E2D922-A594-4446-92B1-EC51EB907041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E2D922-A594-4446-92B1-EC51EB907041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B24C857-40DA-431E-BBCC-1A301EE20B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B24C857-40DA-431E-BBCC-1A301EE20B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B24C857-40DA-431E-BBCC-1A301EE20B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B24C857-40DA-431E-BBCC-1A301EE20B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4207CA-B0C9-435E-ACA8-CDAEC37B2AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB4207CA-B0C9-435E-ACA8-CDAEC37B2AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB4207CA-B0C9-435E-ACA8-CDAEC37B2AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB4207CA-B0C9-435E-ACA8-CDAEC37B2AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A46414E-BBAB-40B6-B200-C8320746ACAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A46414E-BBAB-40B6-B200-C8320746ACAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A46414E-BBAB-40B6-B200-C8320746ACAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A46414E-BBAB-40B6-B200-C8320746ACAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0A3EAAA-A9A5-45F7-BBF0-25E35480B042} = {0D9931E1-758F-4738-BDEE-C35BD635136D}
+		{A23F6D31-C467-4263-952E-CF296FFCE26B} = {E0A3EAAA-A9A5-45F7-BBF0-25E35480B042}
+		{001D0116-AC15-477C-B39A-461E74CCC9E8} = {E0A3EAAA-A9A5-45F7-BBF0-25E35480B042}
+		{7CE3302A-5003-4FC3-ADBB-0482F35AC191} = {0D9931E1-758F-4738-BDEE-C35BD635136D}
+		{96E2D922-A594-4446-92B1-EC51EB907041} = {7CE3302A-5003-4FC3-ADBB-0482F35AC191}
+		{6B24C857-40DA-431E-BBCC-1A301EE20B0A} = {7CE3302A-5003-4FC3-ADBB-0482F35AC191}
+		{FB4207CA-B0C9-435E-ACA8-CDAEC37B2AE3} = {7CE3302A-5003-4FC3-ADBB-0482F35AC191}
+		{0A46414E-BBAB-40B6-B200-C8320746ACAC} = {7CE3302A-5003-4FC3-ADBB-0482F35AC191}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39EE498D-1B51-4480-BAAE-BA26890F1A28}
+	EndGlobalSection
+EndGlobal

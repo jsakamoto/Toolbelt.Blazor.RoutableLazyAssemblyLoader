@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IsTrimmable>true</IsTrimmable>
+    <RootNamespace>Toolbelt.Blazor</RootNamespace>
+    <AssemblyName>$(RootNamespace).RoutableLazyAssemblyLoader</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <Copyright>Copyright © 2023 J.Sakamoto, Mozilla Public License 2.0</Copyright>
+    <Authors>J.Sakamoto</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/jsakamoto/Toolbelt.Blazor.RoutableLazyAssemblyLoader/</RepositoryUrl>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <Description>A router component and a service to simplify lazy assembly loading and to avoid flickering of initial loading on pre-rendered Blazor Wasm apps.</Description>
+    <PackageTags>blazor,router,prerender,lazyloading</PackageTags>
+    <PackageReleaseNotes>(Please write the package release notes in "RELEASE NOTES.txt".)</PackageReleaseNotes>
+    <PackageIcon>nupkg-icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
+    <PackageOutputPath>..\_dist\</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+    <None Include="..\.assets\nupkg-icon.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="..\README.md" Visible="false" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0-preview.7.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0-preview.7.*" />
+  </ItemGroup>
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="../RELEASE-NOTES.txt">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+    </ReadLinesFromFile>
+    <PropertyGroup>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a');v.0.0</PackageReleaseNotes>
+      <PackageReleaseNotes>$([System.Text.RegularExpressions.Regex]::Match($(PackageReleaseNotes), "^(v\.[\d\.]+.+?)v\.[\d\.]+", System.Text.RegularExpressions.RegexOptions.Singleline).Groups[1].Value)</PackageReleaseNotes>
+      <PackageReleaseNotes>$(PackageReleaseNotes)%0a%0aTo see all the change logs, please visit the following URL.%0a- $(RepositoryUrl)blob/main/RELEASE-NOTES.txt</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
+
+</Project>

@@ -1,0 +1,65 @@
+@using Microsoft.AspNetCore.Components.Routing;
+@using System.Reflection;
+@using Toolbelt.Blazor.Services;
+
+@inject RoutableLazyAssemblyLoader AssemblyLoader
+
+<Router AppAssembly="this.AppAssembly"
+        AdditionalAssemblies="this.MergedAdditionalAssemblies"
+        NotFound="this.NotFound"
+        Found="this.Found"
+        Navigating="this.Navigating"
+        OnNavigateAsync="this.OnNavigateInternalAsync"
+        PreferExactMatches="this.PreferExactMatches" />
+
+@code
+{
+    /// <summary>
+    /// Gets or sets the assembly that should be searched for components matching the URI.
+    /// </summary>
+    [Parameter, EditorRequired]
+    public Assembly AppAssembly { get; set; } = null!;
+
+    /// <summary>
+    /// Gets or sets a collection of additional assemblies that should be searched for components
+    /// that can match URIs.
+    /// </summary>
+    [Parameter] public IEnumerable<Assembly>? AdditionalAssemblies { get; set; }
+
+    /// <summary>
+    /// Gets or sets the content to display when no match is found for the requested route.
+    /// </summary>
+    [Parameter, EditorRequired]
+    public RenderFragment NotFound { get; set; } = null!;
+
+    /// <summary>
+    /// Gets or sets the content to display when a match is found for the requested route.
+    /// </summary>
+    [Parameter, EditorRequired]
+    public RenderFragment<RouteData> Found { get; set; } = null!;
+
+    /// <summary>
+    /// Get or sets the content to display when asynchronous navigation is in progress.
+    /// </summary>
+    [Parameter] public RenderFragment? Navigating { get; set; }
+
+    /// <summary>
+    /// Gets or sets a handler that should be called before navigating to a new page.
+    /// </summary>
+    [Parameter] public EventCallback<NavigationContext> OnNavigateAsync { get; set; }
+
+    /// <summary>
+    /// Gets or sets a flag to indicate whether route matching should prefer exact matches
+    /// over wildcards.
+    /// <para>This property is obsolete and configuring it does nothing.</para>
+    /// </summary>
+    [Parameter] public bool PreferExactMatches { get; set; }
+
+    private IEnumerable<Assembly> MergedAdditionalAssemblies => this.AssemblyLoader.LoadedAssemblies.Concat(this.AdditionalAssemblies ?? Enumerable.Empty<Assembly>());
+
+    private async Task OnNavigateInternalAsync(NavigationContext context)
+    {
+        await this.AssemblyLoader.OnNavigateAsync(context);
+        await this.OnNavigateAsync.InvokeAsync(context);
+    }
+}
