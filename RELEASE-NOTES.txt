@@ -1,2 +1,6 @@
+v.1.1.0
+- Fix: Resolved an issue where flickering could occur again on the first rendering of a lazy-loaded page.
+- Improve: Added support for .NET 10, including the new `NotFoundPage` router parameter.
+
 v.1.0.0
 - 1st release.
