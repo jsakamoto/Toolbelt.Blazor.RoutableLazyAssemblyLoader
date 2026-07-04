@@ -23,6 +23,8 @@ public class RoutableLazyAssemblyLoader
 
     private readonly List<Assembly> _LoadedAssemblies = new List<Assembly>();
 
+    private readonly HashSet<string> _LoadedAssemblyNames = new HashSet<string>();
+
     /// <summary>
     /// Gets the loaded assemblies by this <see cref="RoutableLazyAssemblyLoader"/>.
     /// </summary>
@@ -57,7 +59,10 @@ public class RoutableLazyAssemblyLoader
         try
         {
             var assemblyNames = this.GetAssemblyNameFromUrlPath(path) ?? Enumerable.Empty<string>();
+            assemblyNames = assemblyNames.Where(name => !this._LoadedAssemblyNames.Contains(name)).ToArray();
             if (!assemblyNames.Any()) return;
+            foreach (var name in assemblyNames) this._LoadedAssemblyNames.Add(name);
+
             var assemblies = await this.AssemblyLoader.LoadAssembliesAsync(assemblyNames);
             this._LoadedAssemblies.AddRange(assemblies);
         }
