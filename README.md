@@ -2,14 +2,14 @@
 
 ## Summary
 
-This service and router component allows you to simplify lazy assembly loading for your Blazor WebAssembly app. 
+This service and router component allow you to simplify lazy assembly loading for your Blazor WebAssembly app. 
 
 Moreover, this library allows us to **avoid flickering** when first loading a page which is contained in a lazy loading assembly on pre-rendered Blazor WebAssembly apps.
 
 
 ## Supported Blazor versions
 
-This library suppots ASP.NET Core Blazor WebAssembly version 6.0 or later.
+This library supports ASP.NET Core Blazor WebAssembly version 6.0 or later.
 
 ## Basic Usage
 
@@ -94,7 +94,7 @@ After the above steps, you can run your Blazor WebAssembly app as usual. In the 
 
 ## Prevent flickering on 1st time rendering of lazy loaded pages in pre-rendered Blazor WebAssembly apps.
 
-If you use the pre-rendering feature of Blazor WebAssembly, you may notice that the lazy-loaded page flickers when it is first rendered. This is because the lazy-loaded page is rendered twice. The first time is when the page is rendered on the server side, and the second time is when the page is rendered on the client side. Usually, the time gap between 1st rendering and 2nd rendering will be almost 0, so nobody may see it flickers. However, when the page is lazy loaded, it might take a few hundred milliseconds to 2nd rendering because Blazor has to fetch the lazy assembly. That means a blank page will be shown during the loading of the lazy assembly. That is the reason for the flickering of the page in this scenario.
+If you use the pre-rendering feature of Blazor WebAssembly, you may notice that the lazy-loaded page flickers when it is first rendered. This is because the lazy-loaded page is rendered twice. The first time is when the page is rendered on the server side, and the second time is when the page is rendered on the client side. Usually, the time gap between 1st rendering and 2nd rendering will be almost 0, so no one notices the flickering. However, when the page is lazy loaded, it might take a few hundred milliseconds to 2nd rendering because Blazor has to fetch the lazy assembly. That means a blank page will be shown during the loading of the lazy assembly. That is the reason for the flickering of the page in this scenario.
 
 Fortunately, this library provides a solution to this problem. The solution is to preload the lazy assembly for the current URL before starting rendering. This library provides an extension method for the `WebAssemblyHost` class to do this. Please call the `PreloadRoutableLazyAssemblyAsync` extension method before calling the `RunAsync` method of the `WebAssemblyHost` instance, as below.
 
