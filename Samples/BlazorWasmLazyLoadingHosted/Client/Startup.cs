@@ -8,7 +8,7 @@ public static class Startup
     {
         services.AddRoutableLazyAssemblyLoader(path => path switch
         {
-            "counter" => new[] { "CounterPage.dll" },
+            "counter" => ["CounterPage.wasm"],
             _ => null
         });
     }

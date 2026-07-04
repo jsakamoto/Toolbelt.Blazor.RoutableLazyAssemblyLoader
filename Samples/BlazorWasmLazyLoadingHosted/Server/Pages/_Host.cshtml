@@ -12,10 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>BlazorWasmApp</title>
     <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="BlazorWasmApp.Client.styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="css/app.css" asp-append-version="true" />
+    <link rel="stylesheet" href="BlazorWasmApp.Client.styles.css" asp-append-version="true" />
+    <script type="importmap"></script>
     <component type="typeof(HeadOutlet)" render-mode="WebAssemblyPrerendered" />
 </head>
 
@@ -27,7 +28,8 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+    
+    <script src="_framework/blazor.webassembly.js" asp-append-version="true"></script>
 </body>
 
 </html>

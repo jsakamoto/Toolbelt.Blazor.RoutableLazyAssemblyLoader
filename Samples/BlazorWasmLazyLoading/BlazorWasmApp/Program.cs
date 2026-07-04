@@ -13,16 +13,30 @@ if (!builder.RootComponents.Any())
 ConfigureServices(builder.Services, builder.HostEnvironment.BaseAddress);
 
 var host = builder.Build();
+
 await host.PreloadRoutableLazyAssemblyAsync();
+Console.WriteLine("M-X: Preloaded");
+
 await host.RunAsync();
 
 static void ConfigureServices(IServiceCollection services, string baseAddress)
 {
     services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(baseAddress) });
 
-    services.AddRoutableLazyAssemblyLoader(path => path switch
+    //services.AddRoutableLazyAssemblyLoader(path => path switch
+    //{
+    //    "counter" => ["CounterPage.wasm"],
+    //    _ => null
+    //});
+    services.AddRoutableLazyAssemblyLoader(path =>
     {
-        "counter" => new[] { "CounterPage.dll" },
-        _ => null
+        Console.WriteLine($"M-0: Checking path: \"{path}\"");
+        if (path == "counter")
+        {
+            Console.WriteLine("M-1: Loading CounterPage.wasm");
+            return ["CounterPage.wasm"];
+        }
+        Console.WriteLine("M-2: No matching path found");
+        return null;
     });
 }

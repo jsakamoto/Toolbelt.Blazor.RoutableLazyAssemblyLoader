@@ -29,11 +29,11 @@ else
 app.UseHttpsRedirection();
 
 app.UseBlazorFrameworkFiles();
-app.UseStaticFiles();
+app.MapStaticAssets();
 
 app.UseRouting();
 
-app.MapRazorPages();
+app.MapRazorPages().WithStaticAssets();
 app.MapControllers();
 app.MapFallbackToPage("/_Host");
 
