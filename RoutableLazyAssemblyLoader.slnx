@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/README/">
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+    <File Path="RELEASE-NOTES.txt" />
+  </Folder>
+  <Folder Name="/Samples/" />
+  <Folder Name="/Samples/BlazorWasmLazyLoading/">
+    <Project Path="Samples/BlazorWasmLazyLoading/BlazorWasmApp/BlazorWasmApp.csproj" />
+    <Project Path="Samples/BlazorWasmLazyLoading/CounterPage/CounterPage.csproj" />
+  </Folder>
+  <Folder Name="/Samples/BlazorWasmLazyLoadingHosted/">
+    <Project Path="Samples/BlazorWasmLazyLoadingHosted/Client/BlazorWasmApp.Client.csproj" />
+    <Project Path="Samples/BlazorWasmLazyLoadingHosted/CounterPage/CounterPage.csproj" />
+    <Project Path="Samples/BlazorWasmLazyLoadingHosted/Server/BlazorWasmApp.Server.csproj" />
+    <Project Path="Samples/BlazorWasmLazyLoadingHosted/Shared/BlazorWasmApp.Shared.csproj" />
+  </Folder>
+  <Project Path="RoutableLazyAssemblyLoader/RoutableLazyAssemblyLoader.csproj" />
+</Solution>
